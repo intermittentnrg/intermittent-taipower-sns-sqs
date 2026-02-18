@@ -11,8 +11,7 @@ receipt_handles = []
 loop do
   receive_message_result = sqs.receive_message({
     queue_url: queue_url,
-    max_number_of_messages: 10,
-    wait_time_seconds: 0 # Do not wait to check for the message.
+    max_number_of_messages: 10
   })
   receive_message_result.messages.each do |message|
     receipt_handles << message.receipt_handle
