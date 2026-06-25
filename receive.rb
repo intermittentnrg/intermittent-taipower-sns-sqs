@@ -33,7 +33,7 @@ end
 
 raise 'no files' if paths.empty?
 
-system "git", "add", "-v", *paths
+system "git", "add", "--sparse", "-v", *paths
 system "git", "commit", "-m", "Updated data from AWS SQS"
 system "git", "push", exception: true
 

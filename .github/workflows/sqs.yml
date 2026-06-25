@@ -8,12 +8,15 @@ permissions:
   contents: write
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            receive.rb
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.0
+          ruby-version: 3.4.7
           bundler-cache: true
       - name: Commit user.name and email
         run: |
